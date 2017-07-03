@@ -17,7 +17,7 @@
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="NickName"
         name='username'>
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       {{ form.password1.errors }}
       <div class="form-group has-feedback">
@@ -51,13 +51,6 @@
       </div>
     </form>
 
-    <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
-        Google+</a>
-    </div>
 
     <a href="{% url 'login' %}" class="text-center">I'm already
         registered</a>
