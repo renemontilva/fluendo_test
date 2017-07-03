@@ -1,0 +1,244 @@
+    
+      <header class="main-header">
+         <a href="index.html" >
+             <div class="logo">
+              <img src="/static/img/bamconner.png" width="200px" height="83px"/>
+              </div>
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+            </a>
+     
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+            
+              <!-- Messages: style can be found in dropdown.less-->
+              <li class="dropdown messages-menu">
+               
+                   
+              <!-- Notifications: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">10</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 10 notifications</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">View all</a></li>
+                </ul>
+              </li>
+             
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs">  </span>
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="" class="img-circle" alt="User Image" />
+                   <p>
+                   {{user.username}}
+                   <small>Phone:{{ user.phone }} Email:{{ user.email }}</small>
+                                    </p>
+                  
+                  </li>
+                 <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="" class="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    <div class="pull-right">
+                        <a href="{% url 'logout' %}" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <!-- =============================================== -->
+
+      <!-- Left side column. contains the sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+                       
+                <p>{{ user.username }}</p>
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+         
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+             <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                     <li class="header"></li>
+                        <li class="">
+                            <a href="">
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
+
+                         
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-tablet"></i>
+                                <span>Push Management</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="{% url 'push:list_apps' %}">
+                                        <i class="fa fa-angle-double-right"></i>
+                                        Apps
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-angle-double-right"></i>
+                                        Templates 
+                                    </a>
+                                </li>
+                                <li><a href="">
+                                        <i class="fa fa-angle-double-right"></i>
+                                        Campaigns 
+                                    </a>
+                                </li>                                
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-angle-double-right"></i>
+                                        Automated 
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-bullhorn"></i>
+                                <span>Call Management</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-angle-double-right"></i>
+                                        Records 
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-angle-double-right"></i>
+                                        IVRs
+                                    </a>
+                                </li>
+                                <li><a href="">
+                                        <i class="fa fa-angle-double-right"></i>
+                                        Campaigns
+                                    </a>
+                                </li>                                
+                          <!--    <li><a href="[% c.uri_for(c.controller('PBX').action_for('searchcdr')) %]"><i class="fa fa-angle-double-right"></i>CDRs</a></li> -->
+
+                            </ul>
+                        </li>
+
+                        				
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-comment"></i>
+                                <span>SMS Management</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="">
+                                        <i class="fa fa-angle-double-right"></i>Send SMS</a></li>
+                                <li><a href="">
+                                        <i class="fa fa-angle-double-right"></i>SMS Bulks</a></i>
+                                <li><a href="">
+                                        <i class="fa fa-angle-double-right"></i>Templates</a></li>     
+                                <li><a href="">
+                                        <i class="fa fa-angle-double-right"></i>Campaigns</a></li>
+                          <!--    <li><a href="[% c.uri_for(c.controller('SMS').action_for('receivedsms')) %]"><i class="fa fa-angle-double-right"></i>Reportes</a></li> -->
+
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                 <i class="fa fa-envelope"></i>
+                                <span></span>
+                             <span>Email Services</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="[% c.uri_for(c.controller('Campaigns').action_for('listtemplate')) %]"><i class="fa fa-angle-double-right"></i>Templates</a></li>
+                                <li><a href="[% c.uri_for(c.controller('Campaigns').action_for('listemail')) %]"><i class="fa fa-angle-double-right"></i>Campaigns</a></li>
+                            <!--    <li><a href="[% c.uri_for(c.controller('Campaigns').action_for('reportemailca')) %]"><i class="fa fa-angle-double-right"></i>Reporte</a></li> -->
+
+                            </ul>
+                        </li>
+                        
+                        				
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa  fa-bar-chart-o"></i>
+                                <span>Statics</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="[% c.uri_for(c.controller('SMS').action_for('send')) %]"><i class="fa fa-angle-double-right"></i>Campaigns</a></li>
+                                <li><a href="[% c.uri_for(c.controller('SMS').action_for('sendmass')) %]"><i class="fa fa-angle-double-right"></i>API</a></i>
+                         
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-users"></i> <span>System Users</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="[% c.uri_for(c.controller('User').action_for('list')) %]"><i class="fa fa-angle-double-right"></i>Users</a></li>
+                            </ul>
+                        </li>
+                       
+                    </ul>
+
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- =============================================== -->
+
+        <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                        
+                </section>
