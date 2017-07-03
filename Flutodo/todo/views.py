@@ -8,8 +8,14 @@ class ItemCreate(generic.CreateView):
     model = Item
     template_name = 'todo/item_create.html'
     form_class = ItemForm
-    success_url = reverse_lazy('todo:item_list')
+    success_url = reverse_lazy('listItem')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(ItemCreate, self).form_valid(form)
+
+
+class ItemList(generic.ListView):
+    queryset = Item.objects.all()
+    template_name = 'todo/item_list.html'
+    paginate_by = 10
