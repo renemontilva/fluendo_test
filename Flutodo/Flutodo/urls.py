@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from users.views import SignUp
+from todo.views import ItemCreate
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^signup/', SignUp.as_view(), name='signup'),
+    url(r'^todo/new', ItemCreate.as_view(), name='newItem'),
 ]
