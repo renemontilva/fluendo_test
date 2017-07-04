@@ -86,7 +86,7 @@
                                                     </div>
   														
   														 <div class="btn-group" >    
-                                                        <a href="{% url 'newItem' %}" 
+                                                        <a href="{% url 'todo:newItem' %}" 
                                                            <button
                                                            type="button"
                                                            class="btn
@@ -146,7 +146,7 @@
                                                id="iscomplete" name='is'
                                                > 
                                         -->
-                                        <a href="{% url 'upItem' item.id%}" 
+                                        <a href="{% url 'todo:upItem' item.id%}" 
                                              <button type="button" class="btn
                                              btn-info">Change</button>
                                         </a>
@@ -158,7 +158,7 @@
                                  
                                  <div class="btn-group">
  <div class="btn-group" >    
-                                                       <a href="{% url 'delItem' item.id %}" 
+                                                       <a href="{% url 'todo:delItem' item.id %}" 
                         <button   type="button" class="btn btn-danger btn-sm
                                                            btn-flat
                                                            dropdown-toggle"
