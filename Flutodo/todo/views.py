@@ -24,7 +24,7 @@ class ItemList(generic.ListView):
 class ItemDelete(generic.DeleteView):
     model = Item
     template_name = 'todo/item_delete.html'
-    success_url = reverse_lazy('listItem')
+    success_url = reverse_lazy('todo:listItem')
 
 
 class ItemUpdate(generic.UpdateView):
