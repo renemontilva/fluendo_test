@@ -136,16 +136,21 @@
 
                                                 </td>
                                                 <td>
+                                        <!--
                                                <input 
                                                data-toggle="toggle"
                                                type="checkbox"
                                                data-on="Complete"
                                                data-off="Uncomplete"
-                                               {% if item.isComplete %}
                                                checked 
-                                               {% endif %}
-                                               class="iscomplete"
+                                               id="iscomplete" name='is'
                                                > 
+                                        -->
+                                        <a href="{% url 'upItem' item.id%}" 
+                                             <button type="button" class="btn
+                                             btn-info">Change</button>
+                                        </a>
+
                                                 </td>
                                                                                                
                                               
