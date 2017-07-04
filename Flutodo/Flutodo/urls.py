@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from users.views import SignUp
-from todo.views import ItemCreate, ItemList
+from todo.views import ItemCreate, ItemList, ItemDelete
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,5 +24,7 @@ urlpatterns = [
     url(r'^signup/', SignUp.as_view(), name='signup'),
     url(r'^todo/new', ItemCreate.as_view(), name='newItem'),
     url(r'^todo/list', ItemList.as_view(), name='listItem'),
+    url(r'^todo/del/(?P<pk>[0-9-]+)', ItemDelete.as_view(), name='delItem'),
+
 
 ]

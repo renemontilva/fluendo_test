@@ -19,3 +19,9 @@ class ItemList(generic.ListView):
     queryset = Item.objects.all()
     template_name = 'todo/item_list.html'
     paginate_by = 10
+
+
+class ItemDelete(generic.DeleteView):
+    model = Item
+    template_name = 'todo/item_delete.html'
+    success_url = reverse_lazy('listItem')

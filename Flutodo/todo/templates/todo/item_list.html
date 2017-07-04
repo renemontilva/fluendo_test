@@ -6,13 +6,13 @@
                             <div class="box  box-primary">
                                 <div class="box-header">
                                    <ol class="breadcrumb">
-										<li><a href="#"> <i class="fa fa-tablet"></i></a></li>
+										<li><a href="#"> <i class="fa fa-file"></i></a></li>
 										<li class="active">ToDo Managament</li>
 								   </ol>
                                 </div><!-- /.box-header -->
                                 <div class="box-body">
                                 <form method="post" action="" id="">
-                                  
+                                    {{msg}} 
                                         
                                         <!-- Model Window -->
                                         
@@ -75,8 +75,8 @@
                                                     </div>
                                                   </div>
                                                 </div>                
-                                                   
-                                 
+                                                 
+                                {{ msg }}
                                         <tr>
                                                  <div class="row pad">
                                                 <div class="col-sm-6">
@@ -94,7 +94,7 @@
                                                            btn-flat
                                                            dropdown-toggle"
                                                            data-target="tooltip"
-                                                           title="Create an app " >
+                                                           title="Create Item" >
                                                               <i class="fa
                                                               fa-plus-square"> 
                                                               New</i>
@@ -118,10 +118,10 @@
                                         
                                             <tr>
                                              
-                                                <th>Name</th>
-                                                <th>Created At</th>
-                                                <th>Updated At</th>
-						                        <th>Actions</th>
+                                                <th>Item</th>
+                                                <th></th>
+                                                <th></th>
+						                        <th></th>
                                             </tr>
     							   </thead>
                                         <tbody>
@@ -129,22 +129,42 @@
 
                                             <tr>
                                                 <td>{{ item.name }}</td>
-                                                <td>{{ item.created_at }}</td>
-                                                <td>{{ item.updated_at }}</td>
+                                                <td>
+                                                    {% if item.isComplete %}
+                                                        <i class="fa fa-check">
+                                                    {% endif %}          
+
+                                                </td>
+                                                <td>
+                                               <input 
+                                               data-toggle="toggle"
+                                               type="checkbox"
+                                               data-on="Complete"
+                                               data-off="Uncomplete"
+                                               {% if item.isComplete %}
+                                               checked 
+                                               {% endif %}
+                                               class="iscomplete"
+                                               > 
+                                                </td>
                                                                                                
                                               
                                                 <td class="rowlink-skip">
                                  
                                  <div class="btn-group">
-                                    <button data-toggle="dropdown" class="btn
-                                        btn-default dropdown-toggle
-                                        data-label-placement"
-                                    data-target="tooltip" title="Actions"><i class="glyphicon glyphicon-menu-hamburger data-label" ></i></button>
-                                    <ul class="dropdown-menu " role="menu" >
-                                    
-                                        <li>
-                                   </ul>
-                                </div>
+ <div class="btn-group" >    
+                                                       <a href="{% url 'delItem' item.id %}" 
+                        <button   type="button" class="btn btn-danger btn-sm
+                                                           btn-flat
+                                                           dropdown-toggle"
+                                                           data-target="tooltip"
+                                                           title="Delete Item" >
+                                                       <i class="fa fa-trash-o"></i>
+                                                        </button>
+                                                       </a>
+                                                    </div>
+
+                                              </div>
                                      </td>
                                             </tr>
                                                                                       
