@@ -8,7 +8,7 @@ class ItemCreate(generic.CreateView):
     model = Item
     template_name = 'todo/item_create.html'
     form_class = ItemForm
-    success_url = reverse_lazy('listItem')
+    success_url = reverse_lazy('todo:listItem')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -31,4 +31,4 @@ class ItemUpdate(generic.UpdateView):
     model = Item
     template_name = 'todo/item_update.html'
     form_class = ItemForm
-    success_url = reverse_lazy('listItem')
+    success_url = reverse_lazy('todo:listItem')
