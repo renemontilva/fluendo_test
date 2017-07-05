@@ -26,7 +26,7 @@ Test App
 Steps
    1.- Create your user
    2.- create your new item
-   3.- Enjoy
+   3.- Enjoy it
 
 WebServices API:
 
