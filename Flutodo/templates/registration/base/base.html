@@ -18,12 +18,8 @@
 		<link href="{% static 'css/skins/skin-blue.css' %}" rel="stylesheet" type="text/css" />
          
         
-        <!-- Morris charts -->
-		<link href=" {% static 'css/morris/morris.css' %}" rel="stylesheet" type="text/css" />
          <!-- upload library -->
         
-          <!-- iCheck for checkboxes and radio inputs -->
-		  <link href=" {% static 'css/iCheck/all.css' %}" rel="stylesheet" type="text/css" />
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -31,16 +27,13 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
         
-         <!-- datetimepicker -->
-		 <link href="{% static 'css/timepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet" type="text/css" />
-
 
     </head>
 	<body class="{% block body_class %}skin-blue{% endblock body_class %}" id="[%login%]">
      <!-- Site wrapper -->
     <div class="wrapper">
 
-		{% if user.is_authenticated and perms.push.add_subscriber and perms.push.change_subscriber and perms.push.delete_subscriber %} 
+		{% if user.is_authenticated %} 
 			{% include 'base/menu.html' %}
               <!-- Main content -->
                 <section class="content">

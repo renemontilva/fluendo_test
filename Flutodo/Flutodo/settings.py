@@ -105,15 +105,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fluendo',
-        'USER': 'fluendo',
-        'PASSWORD': 'fluendo',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+            'default': {
+               'ENGINE': 'django.db.backends.sqlite3',
+               'NAME': 'fluendo',
+            }
 }
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
