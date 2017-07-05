@@ -17,6 +17,7 @@ Build the docker image
     $ docker build -t renemontilva/fluendo_test . 
 
 Run the cointainer
+
     $ docker run -it -p 8000:8000 renemontilva/fluendo_test
 
 Test App
