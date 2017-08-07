@@ -16,13 +16,20 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from users.views import SignUp, User
+from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
 
-
-urlpatterns = [
+urlpatterns = i18n_patterns(
     url(r'^admin/', admin.site.urls),
     url(r'^$', User.as_view(), name='home'),
     url(r'^account/', include('django.contrib.auth.urls')),
     url(r'^signup/', SignUp.as_view(), name='signup'),
     url(r'^todo/', include('todo.urls', namespace='todo')),
     url(r'api/', include('api.urls', namespace='api')),
-]
+)
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+            url(r'__debug__/', include(debug_toolbar.urls)),
+            ] + urlpatterns

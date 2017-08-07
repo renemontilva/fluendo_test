@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% block content %}
+ <!-- general form elements -->
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                  <ol class="breadcrumb">
+										<li><a href="#"> <i class="fa fa-file"></i></a></li>
+                                        <li class=""><a href="{% url 'todo:listItem">ToDo Management</a></li>
+										<li class="active">New</li>
+								   </ol>
+                                </div><!-- /.box-header -->
+                               <br/>
+                                <!-- form start -->
+                                <form role="form" method="post" action=""  >
+                                {% csrf_token %}
+                                    <div class="box-body">
+                                     
+                                    
+                                        <div class="form-group">
+                                            <label for="name">{{form.name.label }}</label>
+                                            {{ form.name }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description">{{form.description.label}}</label>
+                                            {{ form.description }}
+                                        </div>
+                                                                           
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                         <a href="{% url 'todo:listItem' %}" 
+                                             <button type="button" class="btn
+                                             btn-danger">Cancel</button>
+                                        </a>
+
+                                    </div>
+                                </form>
+                            </div><!-- /.box -->
+{% endblock %}

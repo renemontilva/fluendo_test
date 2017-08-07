@@ -1,53 +1,61 @@
 {% extends "base/base_login.html" %}
+{% load i18n %}
 {% block content %}
 <div class="login-box">
-
-
-      
-        <div class="panel panel-primary">
+    <div class="panel panel-primary">
         <!-- Default panel contents -->
-  <div class="panel-heading">
-  <div class="login-logo header">
+        <div class="panel-heading">
+            <div class="login-logo header">
                 <h4>Fluendo ToDo</h4>
-      </div><!-- /.login-logo -->
-      
-          <div class="panel panel-default">
-        <div class="login-box-body">
-			{% if form.errors %}
-			<div class="alert alert-danger" role="alert"><center>Username or Password didn't match, Please try again.</center></div>
-			{% endif %}
-		{% if netxt %}
-				{% if user.is_authenticated %}
-				<div class="alert alert-danger" ><center>Your account doesn't have access to this page, Please login with a authorized account.</center></div>
-			{%else%}
-				<div class="alert alert-danger" ><center>Please login with a authorized account.</center></div>
-			{% endif%}
-		{% endif %}
+            </div><!-- /.login-logo -->
+            <div class="panel panel-default">
+                <div class="login-box-body">
+			        {% if form.errors %}
+			        <div class="alert alert-danger" role="alert">
+                        <center>
+                         {% trans  "Username"   %}
 
-			<form method="post" action="">
-                {% csrf_token %}
-            <div class="form-group has-feedback">
-                <input type="text" name="username" id="username" class="form-control" placeholder="Username"/>
-                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </center>
+                    </div>
+			        {% endif %}
+		            {% if netxt %}
+				        {% if user.is_authenticated %}
+				            <div class="alert alert-danger" >
+                                <center>
+                                    {% blocktrans %} Your account doesn't have
+                                    access to this page, Please login with an                            authorized account.{% endblocktrans %}
+                                </center>
+                            </div>
+			            {%else%}
+			    	        <div class="alert alert-danger">
+                                <center>
+                                    Please login with a authorized account.
+                                </center>
+                            </div>
+			            {% endif%}
+		            {% endif %}
+			            <form method="post" action="">
+                            {% csrf_token %}
+                            <div class="form-group has-feedback">
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Username"/>
+                                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password"/>
+                                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            </div>
+                            <div class="row">
+                                <div >
+                                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                                </div><!-- /.col -->
+                            </div>
+                        </form>
+
+                       <a href="{% url 'signup' %}">Sign Up</a><br>
+                	   <a href="{% url 'password_reset' %}">I forgot my password</a><br>
+
+                </div><!-- /.login-box-body -->
             </div>
-          <div class="form-group has-feedback">
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password"/>
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-          </div>
-          <div class="row">
-            <div >
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-            </div><!-- /.col -->
-          </div>
-        </form>
-
-        <a href="{% url 'signup' %}">Sign Up</a><br>
-
-		<a href="{% url 'password_reset' %}">I forgot my password</a><br>
-
-      </div><!-- /.login-box-body -->
-      </div>
-      </div>
-    </div><!-- /.login-box -->
-	
+     </div>
+</div><!-- /.login-box -->
 {% endblock %}

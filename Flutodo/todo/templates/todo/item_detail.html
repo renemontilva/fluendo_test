@@ -1,0 +1,192 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+ <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box  box-primary">
+                                <div class="box-header">
+                                   <ol class="breadcrumb">
+										<li><a href="#"> <i class="fa fa-file"></i></a></li>
+										<li class="active">ToDo Managament</li>
+								   </ol>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                <form method="post" action="" id="">
+                                    {{msg}} 
+                                        
+                                        <!-- Model Window -->
+                                        
+                                         <!--delGCM modal -->
+                                
+              <div class="modal fade delGCM-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                  <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                    
+                                                       <div class="modal-body">
+                                                        <div class="alert alert-info alert-dismissable margin" >
+                                                                                        <i class="fa fa-info"></i>
+                                                                                        <b>Alert !</b> Are you Sure?.
+                                                                                        </div>
+                                                      </div>
+                                                       <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary"  id="delprovider" >Delete Item(s)</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                        
+                                          <!--disGCM modal -->
+                                
+                                                    <div class="modal fade disGCM-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                  <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                    
+                                                       <div class="modal-body">
+                                                        <div class="alert alert-info alert-dismissable margin" >
+                                                                                        <i class="fa fa-info"></i>
+                                                                                        <b>Alert !</b> Are you Sure?.
+                                                                                        </div>
+                                                      </div>
+                                                       <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary"  id="disprovider" >Disable Item(s)</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                        
+                           <!--enGCM modal -->
+                                
+                                                    <div class="modal fade enGCM-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                  <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                    
+                                                       <div class="modal-body">
+                                                        <div class="alert alert-info alert-dismissable margin" >
+                                                                                        <i class="fa fa-info"></i>
+                                                                                        <b>Alert !</b> Are you Sure?.
+                                                                                        </div>
+                                                      </div>
+                                                       <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary"  id="enprovider" >Enable Item(s)</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>                
+                                                 
+                                {{ msg }}
+                                        <tr>
+                                                 <div class="row pad">
+                                                <div class="col-sm-6">
+                                                    <!-- Action button -->
+                                                    <div class="btn-group" >
+                                                         
+                                                    </div>
+  														
+  														 <div class="btn-group" >    
+                                                        <a href="{% url 'todo:newItem' %}" 
+                                                           <button
+                                                           type="button"
+                                                           class="btn
+                                                           btn-primary btn-sm
+                                                           btn-flat
+                                                           dropdown-toggle"
+                                                           data-target="tooltip"
+                                                           title="Create Item" >
+                                                              <i class="fa
+                                                              fa-plus-square"> 
+                                                              New</i>
+                                                        </button>
+                                                       </a>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="col-sm-6 search-form">
+                                                 <!--   <form action="#" class="text-right"> -->
+                                                        <div class="input-group">
+                                                                                                               </div>
+                                                    <!--</form> -->
+                                                </div>
+                                            </div><!-- /.row -->                         
+
+ 
+                                                                         
+   <table id="example2" class="table table-bordered table-hover  ">
+     					  <thead>                              
+                                        
+                                            <tr>
+                                             
+                                                <th>Item</th>
+                                                <th></th>
+                                                <th></th>
+						                        <th></th>
+                                            </tr>
+    							   </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>passed</td>
+                                                <td>
+
+                                                </td>
+                                                <td>
+                                        <!--
+                                               <input 
+                                               data-toggle="toggle"
+                                               type="checkbox"
+                                               data-on="Complete"
+                                               data-off="Uncomplete"
+                                               checked 
+                                               id="iscomplete" name='is'
+                                               > 
+                                        -->
+
+                                                </td>
+                                                                                               
+                                              
+                                                <td class="rowlink-skip">
+                                 
+                                 <div class="btn-group">
+ <div class="btn-group" >    
+                                  </div>
+
+                                              </div>
+                                     </td>
+                                            </tr>
+                                                                                      
+                                            
+ 										</tbody>
+ 
+                                    </table>
+                                  </form>
+    {% if is_paginated %} 
+
+	<ul class="pagination ">
+ 
+        {% if page_obj.has_previous %}
+	        <li><a href="?page={{ page_obj.previous_page_number }}"><i class="glyphicon glyphicon-backward"></i></a></li>
+        {% endif %}
+
+        {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}
+        <li class="active"> <a href="?page={{ i }}">{{ i }}</a></li>
+            {% else %} 
+            <li > <a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %} 
+            <li><a href="?page={{ page_obj.next_page_number }}"><i class="glyphicon glyphicon-forward"></i></a>
+            </li>
+
+        {% endif %}
+	</ul>
+    {% endif %}
+     <p class="pagingText">Showing 10 records of {{ paginator.count }} </p>
+                             
+                                  
+                              </div><!-- /.box-body -->
+                          </div><!-- /.box -->
+
+{% endblock %}

@@ -76,7 +76,7 @@
                                                   </div>
                                                 </div>                
                                                  
-                                {{ msg }}
+                                {{ project }}
                                         <tr>
                                                  <div class="row pad">
                                                 <div class="col-sm-6">
@@ -86,7 +86,7 @@
                                                     </div>
   														
   														 <div class="btn-group" >    
-                                                        <a href="{% url 'todo:newItem' %}" 
+                                                        <a href="{% url 'todo:newItem' project.id %}" 
                                                            <button
                                                            type="button"
                                                            class="btn
@@ -125,7 +125,7 @@
                                             </tr>
     							   </thead>
                                         <tbody>
-                                        	{%  for item in object_list %}
+                                            {% for item in object_list %} 
 
                                             <tr>
                                                 <td>{{ item.name }}</td>

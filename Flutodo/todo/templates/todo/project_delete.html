@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+  <!-- general form elements -->
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                  <ol class="breadcrumb">
+										<li><a href="#"> <i class="fa fa-file"></i></a></li>
+                                        <li class=""><a href="{% url 'todo:listProject' %}">ToDo
+                                                Management</a></li>
+										<li class="active">App</li>
+								   </ol>
+                                </div><!-- /.box-header -->
+                               <br/>
+                                <!-- form start -->
+                                <form role="form" method="post" action=""  >
+                                {% csrf_token %}
+                                    <div class="box-body">
+                                     
+                                        <div class="form-group">
+                                            <div class="callout callout-danger">
+                                     <h5><i class="glyphicon glyphicon-trash"></i> Are you
+                                         sure?</h5>
+                                         <p>It'll be deleted Project id "{{ object.id }}" </p>
+                                            </div>
+                                        </div>
+                                                                           
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">
+                                        <button type="submit" class="btn
+                                            btn-primary">Confirm</button>
+                                    </div>
+                                </form>
+                            </div><!-- /.box -->
+{% endblock %}
