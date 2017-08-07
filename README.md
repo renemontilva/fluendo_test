@@ -12,7 +12,7 @@ clone this repo:
 
 ## Configure the project
 
-Build the docker images
+Build the docker image
 
     $ docker build -t renemontilva/fluendo_test . 
 
